@@ -6,14 +6,14 @@ package kr.ac.embedded.kookmin.sales;
  * nonempty string.
  */
 public class Sale {
-	private String	name;	// A nonempty string
-	private double	price;	// nonnegative
-							
+	private String name; // A nonempty string
+	private double price; // nonnegative
+
 	public Sale() {
 		name = "No name yet";
 		price = 0;
 	}
-	
+
 	/**
 	 * Precondition: theName is a nonempty string; thePrice is nonnegative.
 	 */
@@ -21,7 +21,7 @@ public class Sale {
 		setName(theName);
 		setPrice(thePrice);
 	}
-	
+
 	public Sale(Sale originalObject) {
 		if (originalObject == null) {
 			System.out.println("Error: null Sale object.");
@@ -31,15 +31,15 @@ public class Sale {
 		name = originalObject.name;
 		price = originalObject.price;
 	}
-	
+
 	public static void announcement() {
 		System.out.println("This is the Sale class.");
 	}
-	
+
 	public double getPrice() {
 		return price;
 	}
-	
+
 	/**
 	 * Precondition: newPrice is nonnegative.
 	 */
@@ -51,11 +51,11 @@ public class Sale {
 			System.exit(0);
 		}
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Precondition: newName is a nonempty string.
 	 */
@@ -67,15 +67,15 @@ public class Sale {
 			System.exit(0);
 		}
 	}
-	
+
 	public String toString() {
 		return (name + " Price and total cost = $" + price);
 	}
-	
+
 	public double bill() {
 		return price;
 	}
-	
+
 	/*
 	 * Returns true if the names are the same and the bill for the calling
 	 * object is equal to the bill for otherSale; otherwise returns false. Also
@@ -87,7 +87,7 @@ public class Sale {
 		else
 			return (name.equals(otherSale.name) && bill() == otherSale.bill());
 	}
-	
+
 	/*
 	 * Returns true if the bill for the calling object is less than the bill for
 	 * otherSale; otherwise returns false.
@@ -100,7 +100,7 @@ public class Sale {
 		// else
 		return (bill() < otherSale.bill());
 	}
-	
+
 	public boolean equals(Object otherObject) {
 		if (otherObject == null)
 			return false;
@@ -111,7 +111,7 @@ public class Sale {
 			return (name.equals(otherSale.name) && (price == otherSale.price));
 		}
 	}
-	
+
 	public Sale clone() {
 		return new Sale(this);
 	}
